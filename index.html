@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafting Something Beautiful | Coming Soon</title>
+  <meta name="description" content="Personal Portfolio launching soon. Handcrafted with passion, elegance, and modern Material Design.">
+
+  <!-- Google Fonts: Roboto & Roboto Flex + Material Symbols Rounded -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Interactive Canvas & Glowing Orbs -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="mouse-glow" id="mouse-glow"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Main Container -->
+  <main class="page-container">
+    <!-- Elevated Material 3 Surface Card -->
+    <article class="m3-surface-card" id="card">
+      <div class="surface-tint"></div>
+
+      <!-- Header Badge -->
+      <div class="badge-wrapper">
+        <span class="m3-badge">
+          <span class="pulse-dot"></span>
+          <span class="material-symbols-rounded icon-spin">autorenew</span>
+          <span>Crafting in Progress</span>
+        </span>
+      </div>
+
+      <!-- Hero Titles -->
+      <header class="card-header">
+        <h1 class="headline-large">
+          Something <span class="gradient-text">extraordinary</span> is in the works
+        </h1>
+        <p class="body-large">
+          We’re pouring heart, code, and design into a refined portfolio experience. Bringing ideas, stories, and craftsmanship together under a fresh aesthetic.
+        </p>
+      </header>
+
+      <!-- Countdown Section -->
+      <section class="countdown-section" aria-label="Launch Countdown">
+        <div class="countdown-grid">
+          <!-- Days -->
+          <div class="timer-box">
+            <div class="progress-ring-container">
+              <svg class="progress-ring" width="110" height="110">
+                <circle class="ring-bg" cx="55" cy="55" r="46"></circle>
+                <circle class="ring-fill" id="ring-days" cx="55" cy="55" r="46"></circle>
+              </svg>
+              <div class="timer-content">
+                <span class="time-digit" id="days">60</span>
+              </div>
+            </div>
+            <span class="timer-label">Days</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="timer-box">
+            <div class="progress-ring-container">
+              <svg class="progress-ring" width="110" height="110">
+                <circle class="ring-bg" cx="55" cy="55" r="46"></circle>
+                <circle class="ring-fill" id="ring-hours" cx="55" cy="55" r="46"></circle>
+              </svg>
+              <div class="timer-content">
+                <span class="time-digit" id="hours">00</span>
+              </div>
+            </div>
+            <span class="timer-label">Hours</span>
+          </div>
+
+          <!-- Minutes -->
+          <div class="timer-box">
+            <div class="progress-ring-container">
+              <svg class="progress-ring" width="110" height="110">
+                <circle class="ring-bg" cx="55" cy="55" r="46"></circle>
+                <circle class="ring-fill" id="ring-minutes" cx="55" cy="55" r="46"></circle>
+              </svg>
+              <div class="timer-content">
+                <span class="time-digit" id="minutes">00</span>
+              </div>
+            </div>
+            <span class="timer-label">Minutes</span>
+          </div>
+
+          <!-- Seconds -->
+          <div class="timer-box">
+            <div class="progress-ring-container">
+              <svg class="progress-ring" width="110" height="110">
+                <circle class="ring-bg" cx="55" cy="55" r="46"></circle>
+                <circle class="ring-fill" id="ring-seconds" cx="55" cy="55" r="46"></circle>
+              </svg>
+              <div class="timer-content">
+                <span class="time-digit" id="seconds">00</span>
+              </div>
+            </div>
+            <span class="timer-label">Seconds</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Progress Bar -->
+      <div class="overall-progress-container">
+        <div class="progress-meta">
+          <span>Journey to Launch</span>
+          <span id="percent-complete">Phase 02 / 04</span>
+        </div>
+        <div class="m3-linear-progress">
+          <div class="m3-progress-indicator" id="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Action Form / Notify Me -->
+      <form class="notify-form" id="notify-form" onsubmit="event.preventDefault(); handleNotify();">
+        <div class="input-container">
+          <span class="material-symbols-rounded input-icon">mail</span>
+          <input
+            type="email"
+            id="notify-email"
+            placeholder="Enter your email for early preview..."
+            required
+            autocomplete="email"
+          >
+          <button type="submit" class="m3-btn-filled" id="submit-btn" aria-label="Get Notified">
+            <span class="btn-ripple"></span>
+            <span class="btn-text">Notify Me</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </button>
+        </div>
+        <p class="form-feedback" id="form-feedback"></p>
+      </form>
+
+      <!-- Social & Connect Pills -->
+      <footer class="card-footer">
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pill" title="X / Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+        <p class="copyright">Designed with precision &bull; Launching 2026</p>
+      </footer>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
